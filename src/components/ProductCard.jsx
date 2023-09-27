@@ -2,28 +2,32 @@ import React, { useContext } from "react";
 import AppContext from "../AppContext";
 
 const ProductCard = ({ product }) => {
-  const { deleteProduct, getProducts, setProducts, setLoading } =
+  const { deleteProduct, getProducts, dispatch, setLoading } =
     useContext(AppContext);
-  const deleteP = (id) => {
-    deleteProduct(id)
-      .then((res) => {
-        console.log(res);
-        getProducts()
-          .then((resp) => {
-            setProducts(resp.data);
-          })
-          .catch((err) => console.log(err));
-      })
-      .catch((err) => console.log(err));
-  };
+  // const deleteP = (id) => {
+  //   deleteProduct(id)
+  //     .then((res) => {
+  //       console.log(res);
+  //       getProducts()
+  //         .then((resp) => {
+  //           setProducts(resp.data);
+  //         })
+  //         .catch((err) => console.log(err));
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
   const destroyProduct = (id) => {
     setLoading(true);
 
     deleteProduct(id)
       .then((res) => {
-        setProducts((currentProduct) =>
-          currentProduct.filter((p) => p.id != id)
-        );
+        // setProducts((currentProduct) =>
+        //   currentProduct.filter((p) => p.id != id)
+        // );
+        dispatch({
+          type: "DELETE",
+          payload: id,
+        });
         setLoading(false);
       })
       .catch((err) => console.log(err));

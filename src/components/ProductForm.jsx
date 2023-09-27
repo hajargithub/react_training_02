@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import AppContext from "../AppContext";
 
 const ProductForm = () => {
-  const { postProduct, setProducts, setLoading } = useContext(AppContext);
+  const { postProduct, dispatch, setLoading } = useContext(AppContext);
 
   const [title, seTitle] = useState("");
   const [image, setImage] = useState("");
@@ -16,7 +16,11 @@ const ProductForm = () => {
 
     postProduct(newproduct)
       .then((res) => {
-        setProducts((prev) => [...prev, res.data]);
+        // setProducts((prev) => [...prev, res.data]);
+        dispatch({
+          type: "ADD_PRODUCT",
+          payload: res.data,
+        });
         setLoading(false);
         seTitle("");
         setImage("");

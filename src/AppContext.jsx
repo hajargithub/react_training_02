@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
+import ProductReducer, { initState } from "./reducers/ProductReducer";
 import {
   getProducts,
   postProduct,
@@ -6,15 +7,15 @@ import {
 } from "./services/ProductServices";
 const AppContext = createContext(null);
 export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState([]);
+  const [state, dispatch] = useReducer(ProductReducer, initState);
   const [loading, setLoading] = useState(true);
 
   const values = {
     deleteProduct,
     postProduct,
     getProducts,
-    products,
-    setProducts,
+    state,
+    dispatch,
     loading,
     setLoading,
   };
