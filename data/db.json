@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 3,
+      "title": "Course3",
+      "body": "learn all about the web front and backend using JS3",
+      "image": "https://picsum.photos/id/237/200/300"
+    },
+    {
+      "id": 4,
+      "title": "Course4",
+      "body": "learn all about the web front and backend using JS4",
+      "image": "https://picsum.photos/id/235/200/300"
+    },
+    {
+      "title": "Course6",
+      "body": "learn all about the web front and backend using JS6",
+      "image": "https://picsum.photos/seed/picsum/200/300",
+      "id": 6
+    },
+    {
+      "title": "article",
+      "body": "lorem loremloeenxbnbs ncmns c mscm sdxsd",
+      "image": "https://picsum.photos/seed/picsum/200/300",
+      "id": 7
+    }
+  ]
+}
